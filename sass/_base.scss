@@ -1,0 +1,64 @@
+// COLOR VARIABLES
+// $color-primary: rgb(197, 153, 99);
+// $color-primary-dark: rgb(178, 132, 81);
+$color-primary: rgba(100, 99, 197, 0.883);
+$color-primary-dark: rgba(133, 99, 197, 0.78);
+
+$color-secondary: #101d2c;
+
+$color-grey-light-1: #f9f7f6;
+$color-grey-light-2: #aaa;
+
+$color-grey-dark-1: #492c0c;
+$color-grey-dark-2: #311e09;
+
+// FONT VARIABLES
+$font-primary: 'Nunito', sans-serif;
+$font-display: 'Josefin Sans', sans-serif;
+
+//media queries
+$bp-lg:68.75em; //1100
+$bp-md:56.25em; //900
+$bp-sm:46.25em; //740
+$bp-xsm:37.5em; //740
+
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+html{
+    font-size: 62.25%;
+    box-sizing: border-box;
+    @media only screen and (max-width: $bp-lg) {
+        font-size: 50%;
+  }
+    
+}
+body{
+    color: $color-grey-dark-2;
+    font-family: $font-primary;
+    line-height: 1.5;
+    font-size: 1.6rem;
+    font-weight: 300;
+    
+}
+
+.container{
+    display: grid;
+    grid-template-rows: 80vh min-content auto repeat(4, min-content) ;
+    // grid-template-rows: 80vh repeat(7, max-content);
+    grid-template-columns:[sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+   
+     & > *{
+        padding: 40px 0;
+        // font-size: 4rem;
+    }
+    @media only screen and (max-width: $bp-md) {
+        grid-template-rows: 6rem 80vh min-content auto repeat(4, min-content) ;
+        grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+     }
+    @media only screen and (max-width: $bp-sm) {
+        grid-template-rows: 6rem calc(100vh-6rem) min-content min-content auto repeat(4, min-content) ;
+     }
+}
